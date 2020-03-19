@@ -9,27 +9,27 @@ pipeline {
 
         stage('terraform started') {
             steps {
-                sh 'echo "Started...!" '
+                sh 'pwd; echo "Started...!" '
             }
         }
         stage('git clone') {
             steps {
-                sh 'sudo rm -r *;sudo git clone https://github.com/VishavpreetSingh/jenkins.git'
+                sh 'pwd; sudo rm -r *;sudo git clone https://github.com/VishavpreetSingh/jenkins.git'
             }
         }
         stage('terraform init') {
             steps {
-                sh 'sudo /opt/terraform init ./jenkins'
+                sh 'pwd; sudo /opt/terraform init ./jenkins'
             }
         }
         stage('terraform plan') {
             steps {
-                sh 'ls ./jenkins; sudo /opt/terraform plan ./jenkins'
+                sh 'pwd; ls ./jenkins; sudo /opt/terraform plan ./jenkins'
             }
         }
         stage('terraform ended') {
             steps {
-                sh 'echo "Ended....!!"'
+                sh 'pwd; echo "Ended....!!"'
             }
         }
 
